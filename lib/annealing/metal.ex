@@ -59,9 +59,9 @@ defmodule Annealing.Metal do
   """
   @spec random_swap(list) :: list
   def random_swap(list) do
-    max = length(list) - 1
-    index_a = Enum.random(0..max)
-    index_b = Enum.random(0..max)
+    max = length(list)
+    index_a = :rand.uniform(max) - 1
+    index_b = :rand.uniform(max) - 1
     swap(list, index_a, index_b)
   end
 
