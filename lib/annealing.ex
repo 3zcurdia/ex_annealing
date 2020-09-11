@@ -15,8 +15,7 @@ defmodule Annealing do
   def distance(list) do
     list
     |> Stream.chunk_every(2, 1, :discard)
-    |> Task.async_stream(fn [{ax, ay}, {bx, by}] -> :math.pow(ax - bx, 2) + :math.pow(ay - by, 2) end)
-    |> Enum.map(fn {:ok, val} -> val end)
+    |> Stream.map(fn [{ax, ay}, {bx, by}] -> :math.pow(ax - bx, 2) + :math.pow(ay - by, 2) end)
     |> Enum.sum()
   end
 end
