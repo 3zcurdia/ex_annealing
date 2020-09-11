@@ -4,7 +4,8 @@ defmodule Annealing.Simulator do
   """
   alias Annealing.Metal
 
-  def run(metal, current_temperature, cooling_rate, calculator) when is_list(metal) do
+  def run(metal, current_temperature, cooling_rate, calculator)
+      when is_list(metal) do
     %Metal{list: metal}
     |> Metal.energy(calculator)
     |> run(current_temperature, cooling_rate, calculator)
